@@ -353,6 +353,7 @@ section{position:relative}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:3px;margin-top:20px;border-radius:var(--r-md);overflow:hidden}
 .gallery-item{position:relative;overflow:hidden;cursor:pointer;background:var(--charcoal);contain:layout}
 .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery-item:nth-child(8){grid-column:span 2}
 .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;min-height:200px;transition:transform .55s cubic-bezier(.25,.46,.45,.94)}
 .gallery-item:nth-child(1) img{min-height:420px}
 .gallery-item:hover img{transform:scale(1.05)}
@@ -643,6 +644,7 @@ footer{background:linear-gradient(180deg,rgba(14,23,24,.98),#0B1516);border-top:
   .gallery-item img{min-height:140px!important;height:140px;object-fit:cover}
   .gallery-item:nth-child(1){grid-column:span 2!important}
   .gallery-item:nth-child(1) img{height:190px;min-height:190px!important}
+  .gallery-item:nth-child(8){grid-column:span 2!important}
   .lightbox-nav{display:none}
   .transform-gallery{padding:var(--sp-xl) 18px}
   .tg-stats-strip{grid-template-columns:repeat(2,1fr);margin-bottom:20px;border-radius:var(--r-sm)}
@@ -1644,6 +1646,9 @@ footer{background:linear-gradient(180deg,rgba(14,23,24,.98),#0B1516);border-top:
       <div class="gallery-item" onclick="openLightbox(2)" role="button" tabindex="0" aria-label="View: Leg Press Station"><img src="https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/WhatsApp%20Image%202026-07-04%20at%2010.01.01%20PM.jpeg" alt="Leg Press Station at Kaizen Fitness Studia" loading="lazy" fetchpriority="low" decoding="async" width="600" height="400"><div class="gallery-item-overlay"><span class="gallery-item-label">Leg Press Station</span></div></div>
       <div class="gallery-item" onclick="openLightbox(3)" role="button" tabindex="0" aria-label="View: Lifting Platform"><img src="https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/WhatsApp%20Image%202026-07-04%20at%2010.02.44%20PM.jpeg" alt="Lifting Platform at Kaizen Fitness Studia" loading="lazy" fetchpriority="low" decoding="async" width="600" height="400"><div class="gallery-item-overlay"><span class="gallery-item-label">Lifting Platform</span></div></div>
       <div class="gallery-item" onclick="openLightbox(4)" role="button" tabindex="0" aria-label="View: Training Floor"><img src="https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/WhatsApp%20Image%202026-07-04%20at%2010.03.00%20PM.jpeg" alt="Training Floor at Kaizen Fitness Studia" loading="lazy" fetchpriority="low" decoding="async" width="600" height="400"><div class="gallery-item-overlay"><span class="gallery-item-label">Training Floor</span></div></div>
+      <div class="gallery-item" onclick="openLightbox(5)" role="button" tabindex="0" aria-label="View: Treadmill Zone"><img src="https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/20260701_193809_jpg.jpeg" alt="Treadmill Zone at Kaizen Fitness Studia" loading="lazy" fetchpriority="low" decoding="async" width="600" height="400"><div class="gallery-item-overlay"><span class="gallery-item-label">Treadmill Zone</span></div></div>
+      <div class="gallery-item" onclick="openLightbox(6)" role="button" tabindex="0" aria-label="View: Spin Studio"><img src="https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/20260701_193632_jpg.jpeg" alt="Spin Studio at Kaizen Fitness Studia" loading="lazy" fetchpriority="low" decoding="async" width="600" height="400"><div class="gallery-item-overlay"><span class="gallery-item-label">Spin Studio</span></div></div>
+      <div class="gallery-item" onclick="openLightbox(7)" role="button" tabindex="0" aria-label="View: Stretch Zone"><img src="https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/20260701_193909_jpg.jpeg" alt="Stretch Zone at Kaizen Fitness Studia" loading="lazy" fetchpriority="low" decoding="async" width="900" height="400"><div class="gallery-item-overlay"><span class="gallery-item-label">Stretch Zone</span></div></div>
     </div>
   </div>
 </section>
@@ -1659,11 +1664,11 @@ footer{background:linear-gradient(180deg,rgba(14,23,24,.98),#0B1516);border-top:
       <div class="creds-cat">
         <div class="creds-cat-title"><span>🏋️</span> Fitness Science</div>
         <div class="creds-grid">
-          <div class="creds-card" onclick="openLightbox(5)" role="button" tabindex="0" aria-label="View K11 Master Trainer certificate">
+          <div class="creds-card" onclick="openLightbox(8)" role="button" tabindex="0" aria-label="View K11 Master Trainer certificate">
             <div class="creds-card-img"><img src="https://picsum.photos/seed/k11master/500/360" alt="K11 Master Trainer certificate" loading="lazy" decoding="async" width="500" height="360"></div>
             <div class="creds-card-info"><strong>K11 Master Trainer</strong><em>K11 School of Fitness Sciences</em></div>
           </div>
-          <div class="creds-card" onclick="openLightbox(6)" role="button" tabindex="0" aria-label="View Certified Personal Trainer (Special Populations) certificate">
+          <div class="creds-card" onclick="openLightbox(9)" role="button" tabindex="0" aria-label="View Certified Personal Trainer (Special Populations) certificate">
             <div class="creds-card-img"><img src="https://picsum.photos/seed/k11special/500/360" alt="Certified Personal Trainer Special Populations certificate" loading="lazy" decoding="async" width="500" height="360"></div>
             <div class="creds-card-info"><strong>Certified Personal Trainer (Special Populations)</strong><em>K11 Academy of Fitness Sciences</em></div>
           </div>
@@ -1672,7 +1677,7 @@ footer{background:linear-gradient(180deg,rgba(14,23,24,.98),#0B1516);border-top:
       <div class="creds-cat">
         <div class="creds-cat-title"><span>🥗</span> Nutrition</div>
         <div class="creds-grid">
-          <div class="creds-card" onclick="openLightbox(7)" role="button" tabindex="0" aria-label="View Certified Sports Nutritionist certificate">
+          <div class="creds-card" onclick="openLightbox(10)" role="button" tabindex="0" aria-label="View Certified Sports Nutritionist certificate">
             <div class="creds-card-img"><img src="https://picsum.photos/seed/k11nutrition/500/360" alt="Certified Sports Nutritionist certificate" loading="lazy" decoding="async" width="500" height="360"></div>
             <div class="creds-card-info"><strong>Certified Sports Nutritionist</strong><em>K11 Academy of Fitness Sciences</em></div>
           </div>
@@ -1681,7 +1686,7 @@ footer{background:linear-gradient(180deg,rgba(14,23,24,.98),#0B1516);border-top:
       <div class="creds-cat">
         <div class="creds-cat-title"><span>❤️</span> Emergency Response</div>
         <div class="creds-grid">
-          <div class="creds-card" onclick="openLightbox(8)" role="button" tabindex="0" aria-label="View CPR and AED certificate">
+          <div class="creds-card" onclick="openLightbox(11)" role="button" tabindex="0" aria-label="View CPR and AED certificate">
             <div class="creds-card-img"><img src="https://picsum.photos/seed/cpraed/500/360" alt="CPR and AED certificate" loading="lazy" decoding="async" width="500" height="360"></div>
             <div class="creds-card-info"><strong>CPR &amp; AED Certified</strong><em>Rashtriya Life Saving Society</em></div>
           </div>
@@ -2028,6 +2033,9 @@ var galleryImages=[
   {src:'https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/WhatsApp%20Image%202026-07-04%20at%2010.01.01%20PM.jpeg',alt:'Leg Press Station'},
   {src:'https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/WhatsApp%20Image%202026-07-04%20at%2010.02.44%20PM.jpeg',alt:'Lifting Platform'},
   {src:'https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/WhatsApp%20Image%202026-07-04%20at%2010.03.00%20PM.jpeg',alt:'Training Floor'},
+  {src:'https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/20260701_193809_jpg.jpeg',alt:'Treadmill Zone'},
+  {src:'https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/20260701_193632_jpg.jpeg',alt:'Spin Studio'},
+  {src:'https://cdn.jsdelivr.net/gh/webloomDDM/KAIZEN-FITNESS-STUDIA@main/20260701_193909_jpg.jpeg',alt:'Stretch Zone'},
   {src:'https://picsum.photos/seed/k11master/1200/860',alt:'K11 Master Trainer certificate'},
   {src:'https://picsum.photos/seed/k11special/1200/860',alt:'Certified Personal Trainer (Special Populations) certificate'},
   {src:'https://picsum.photos/seed/k11nutrition/1200/860',alt:'Certified Sports Nutritionist certificate'},
