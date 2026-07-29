@@ -36,15 +36,9 @@
 <!-- Non-render-blocking async font load via print media trick -->
 <link rel="preload" as="style" crossorigin href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"></noscript>
-<!-- LCP hero preload — AVIF for Chrome/Lighthouse (type attr keeps WebP browsers from double-downloading) -->
-<link rel="preload" as="image" type="image/avif"
-  href="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=75&fm=avif"
-  imagesrcset="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=828&q=75&fm=avif 828w,https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=75&fm=avif 1200w,https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=75&fm=avif 1920w"
-  imagesizes="100vw" fetchpriority="high">
-<!-- WebP preload for browsers that support WebP but not AVIF (Safari 16 pre-AVIF, etc.) -->
-<link rel="preload" as="image" type="image/webp"
-  href="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=75&fm=webp"
-  imagesrcset="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=828&q=75&fm=webp 828w,https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=75&fm=webp 1200w,https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=75&fm=webp 1920w"
+<!-- LCP hero preload — single resource matching the <img> fallback exactly (dual avif+webp preloads left one unused, causing the console warning) -->
+<link rel="preload" as="image"
+  href="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80"
   imagesizes="100vw" fetchpriority="high">
 <style>
 /* ─── TOKENS ─── */
@@ -2378,13 +2372,21 @@ faqList.addEventListener('keydown',function(e){
     measurementId: "G-BP5496EYW5"
   };
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  analyticsSupported().then(function(ok){ if(ok) getAnalytics(app); }).catch(function(){});
+  let db = null;
+  try {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+    // Analytics disabled: current apiKey is invalid/restricted (400 API_KEY_INVALID),
+    // so remote config + installations calls fail. Re-enable once a valid,
+    // unrestricted Web API key is set in firebaseConfig above.
+    // analyticsSupported().then(function(ok){ if(ok) getAnalytics(app); }).catch(function(){});
+  } catch (e) {
+    console.warn("Firebase init failed — check apiKey in firebaseConfig:", e);
+  }
 
   /* Exposed for the free-trial form handler above (plain script, not a module). */
   window.__kaizenSaveLead = function(leadData){
+    if (!db) return Promise.reject(new Error("Firestore unavailable"));
     return addDoc(collection(db, "trial_bookings"), Object.assign({}, leadData, {
       createdAt: serverTimestamp()
     }));
